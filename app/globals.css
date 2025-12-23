@@ -59,6 +59,7 @@ body {
   background: #000000;
   color: #ffffff;
   transition: opacity 0.8s ease;
+  font-family: var(--font-montserrat), sans-serif;
 }
 
 .age-verification-hero.fade-out {
@@ -192,6 +193,7 @@ body {
   margin-bottom: 20px;
   opacity: 0;
   animation: fadeInUp 1s ease forwards 0.3s;
+  font-family: var(--font-montserrat), sans-serif;
 }
 
 .hero-title {
@@ -203,6 +205,7 @@ body {
   animation: fadeInUp 1s ease forwards 0.6s;
   text-shadow: 0 0 30px rgba(74, 222, 128, 0.3);
   color: #fff;
+  font-family: var(--font-montserrat), sans-serif;
 }
 
 .logo-container {
@@ -242,6 +245,7 @@ body {
   margin-bottom: 30px;
   opacity: 0;
   animation: fadeInUp 1s ease forwards 0.9s;
+  font-family: var(--font-montserrat), sans-serif;
 }
 
 .cross-symbol {
@@ -330,6 +334,7 @@ body {
   text-transform: uppercase;
   color: #999;
   margin-bottom: 15px;
+  font-family: var(--font-montserrat), sans-serif;
 }
 
 .verification-subtext {
@@ -337,6 +342,7 @@ body {
   letter-spacing: 1.5px;
   color: #ccc;
   margin-bottom: 30px;
+  font-family: var(--font-montserrat), sans-serif;
 }
 
 .button-group {
@@ -358,6 +364,7 @@ body {
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  font-family: var(--font-montserrat), sans-serif;
 }
 
 .verify-button::before {
@@ -424,4 +431,294 @@ body {
   .verification-question {
     font-size: 14px;
   }
+}
+
+/* =============================================
+   LAYERED PANELS - Container & Panel Styles
+   ============================================= */
+
+.panel-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.panel {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+  overflow: hidden;
+}
+
+.panel h2 {
+  font-size: 30vw;
+  opacity: 0.15;
+  position: absolute;
+  font-weight: 700;
+  font-family: var(--font-montserrat), sans-serif;
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+}
+
+/* Description/Hero Panel */
+.panel.description {
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  color: #fff;
+}
+
+.panel.description .panel-content {
+  text-align: center;
+  padding: 2rem;
+  max-width: 800px;
+}
+
+.panel.description h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-family: var(--font-montserrat), sans-serif;
+  letter-spacing: 0.05em;
+}
+
+.panel.description p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  opacity: 0.8;
+  margin-bottom: 2rem;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+/* Scroll Down Indicator */
+.scroll-down {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.scroll-down .arrow {
+  width: 24px;
+  height: 24px;
+  border-right: 2px solid #4ade80;
+  border-bottom: 2px solid #4ade80;
+  transform: rotate(45deg);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) rotate(45deg);
+  }
+  40% {
+    transform: translateY(10px) rotate(45deg);
+  }
+  60% {
+    transform: translateY(5px) rotate(45deg);
+  }
+}
+
+/* Panel Color Variants */
+.panel.green {
+  background: #ffffff;
+  color: #000;
+}
+
+.panel.green h2 {
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.panel.solid {
+  background: #000000;
+  color: #fff;
+}
+
+.panel.solid h2 {
+  color: rgba(255, 255, 255, 0.05);
+}
+
+.panel.purple {
+  background: #ffffff;
+  color: #000;
+}
+
+.panel.purple h2 {
+  color: rgba(0, 0, 0, 0.1);
+}
+
+/* =============================================
+   RESPONSIVE FLEXBOX GRID SYSTEM
+   ============================================= */
+
+/* Base Grid Styles */
+.Grid {
+  display: flex;
+  flex-flow: row;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  padding: 1rem;
+  position: relative;
+  z-index: 10;
+}
+
+.Grid-cell {
+  flex: 1;
+}
+
+/* With gutters */
+.Grid--gutters {
+  margin-left: -1rem;
+}
+
+.Grid--gutters > .Grid-cell {
+  padding-left: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* Panel Card Styles */
+.panel-card {
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.panel-card:hover {
+  background: rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark panel card styles */
+.panel.solid .panel-card {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.panel.solid .panel-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.panel-card h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.panel-card p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+  line-height: 1.6;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+/* =============================================
+   RESPONSIVE GRID - Mobile First
+   ============================================= */
+
+/* Mobile: All columns stack to full width */
+.Grid--cols-2 > .Grid-cell,
+.Grid--cols-3 > .Grid-cell,
+.Grid--cols-4 > .Grid-cell,
+.Grid--cols-6 > .Grid-cell {
+  flex: 0 0 100%;
+}
+
+/* Tablet (min-width: 480px) */
+@media (min-width: 480px) {
+  .Grid--cols-2 > .Grid-cell {
+    flex: 0 0 50%;
+  }
+
+  .Grid--cols-3 > .Grid-cell,
+  .Grid--cols-4 > .Grid-cell {
+    flex: 0 0 50%;
+  }
+
+  .Grid--cols-6 > .Grid-cell {
+    flex: 0 0 calc(33.333% - 1rem);
+  }
+}
+
+/* Medium screens (min-width: 768px) */
+@media (min-width: 768px) {
+  .Grid--cols-3 > .Grid-cell {
+    flex: 0 0 calc(33.333% - 1rem);
+  }
+
+  .Grid--cols-4 > .Grid-cell {
+    flex: 0 0 50%;
+  }
+
+  .Grid--cols-6 > .Grid-cell {
+    flex: 0 0 calc(16.666% - 1rem);
+  }
+
+  .panel-card {
+    padding: 2rem;
+  }
+
+  .panel-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .panel-card p {
+    font-size: 1rem;
+  }
+}
+
+/* Large screens (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .Grid--cols-2 > .Grid-cell,
+  .Grid--cols-3 > .Grid-cell,
+  .Grid--cols-4 > .Grid-cell,
+  .Grid--cols-6 > .Grid-cell {
+    flex: 1;
+  }
+
+  .Grid {
+    padding: 2rem;
+  }
+
+  .panel-card {
+    padding: 2.5rem;
+  }
+}
+
+/* Grid Alignment */
+.Grid--center {
+  justify-content: center;
+}
+
+.Grid--right {
+  justify-content: flex-end;
+}
+
+/* Vertical Alignment */
+.Grid--top {
+  align-items: flex-start;
+}
+
+.Grid--bottom {
+  align-items: flex-end;
+}
+
+.Grid--middle {
+  align-items: center;
+}
+
+/* Full width grid */
+.Grid--full > .Grid-cell {
+  flex: 0 0 100%;
 }
